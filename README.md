@@ -1,16 +1,12 @@
 Running a simple Scala script for Spark
 =======================================
-The aim of this repository is to provide an example for wriring a Scala scripts for Spark quickly.
-This is not an example for production code or deployment.
+This repository provides an example for wriring Scala scripts for Spark quickly. Scripts can then be run locally or  tested using the interactive spark console. This example is *not* about setting up or deploying Spark for production.
 
-This repository contains an example Scala script running a Spark query on a Docker image.
-The example fetches zipped json data from an AWS S3 bucket and writes the results to the local file system.
-
+This repository contains an example Scala script and describes how to run a Spark query on a Docker image. It fetches zipped json data from an AWS S3 bucket, performs a simple group by on a Spark `DataFrame` and writes the results to the local file system.
 
 1. Setup up a stand-alone Spark instance
 ----------------------------------------
-Install the [docker-spark Docker image](https://github.com/sequenceiq/docker-spark) by sequenceiq and build the container.
-The Docker image uses [YARN](http://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html) (Apache Hadoop NextGen MapReduce 2.0) as  Hadoop ResrouceManager.
+Install the [docker-spark Docker image](https://github.com/sequenceiq/docker-spark) by sequenceiq and build the container. The Docker image uses [YARN](http://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html) (Apache Hadoop NextGen MapReduce 2.0) as  Hadoop ResrouceManager.
 
 ```bash
 # pull image
@@ -25,7 +21,6 @@ docker build --rm -t sequenceiq/spark:1.3.0 .
 Locally install Scala (follow [official instructions](http://www.scala-lang.org/download/))
 and the [Scala build tool (sbt)](http://www.scala-sbt.org/) for building scala jars. 
 Sbt will automatically pull the Spark libaries specified in the `simple.sbt` configuration file.
-
 
 Replicate the file structure given in this repository and build the jar.
 
